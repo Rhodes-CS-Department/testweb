@@ -13,5 +13,5 @@ jobs:
       with:
         target-server: example.com
         remote-user: username
-        private-ssh-key: ${{ secrets.SSH_KEY }}
+        private-ssh-key: blarg
         destination-path: ~/public_html/blook
