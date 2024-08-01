@@ -50,13 +50,14 @@ jobs:
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
-      - name: Test output key
+      - name: Test secret key
         run: |
           echo ${{ secrets.MY_SECRET }}
-          echo firstline > tempfile
-          echo ${{ secrets.MY_SECRET }} >> tempfile
-          echo lastline >> tempfile
-          cat tempfile
+          echo ${{ secrets.MY_SECRET }} > tempfile
+          wc tempfile
+          echo ${{ secrets.SSH_PRIVATE_KEY }}
+          echo ${{ secrets.SSH_PRIVATE_KEY }} > tempfile
+          wc tempfile
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         with:
