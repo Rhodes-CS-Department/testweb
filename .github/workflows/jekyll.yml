@@ -55,9 +55,6 @@ jobs:
           echo ${{ secrets.MY_SECRET }}
           echo ${{ secrets.MY_SECRET }} > tempfile
           wc tempfile
-          echo ${{ secrets.SSH_PRIVATE_KEY }}
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > tempfile
-          wc tempfile
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         with:
