@@ -51,11 +51,12 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
       - name: Test output key
-        run: echo ${{ secrets.MY_SECRET }}
-      - name: copy it
-        run: echo ${{ secrets.MY_SECRET }} >> tempfile
-      - name: cat the tempfile
-        run: cat tempfile
+        run: |
+          echo ${{ secrets.MY_SECRET }}
+          echo firstline > tempfile
+          echo ${{ secrets.MY_SECRET }} >> tempfile
+          echo lastline >> tempfile
+          cat tempfile
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         with:
