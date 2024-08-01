@@ -63,10 +63,10 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          SOURCE: "_site/"
+          REMOTE_HOST: cs.rhodes.edu
+          REMOTE_USER: kirlinp
+          TARGET: "~/public_html/blook"
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
             whoami
