@@ -1,4 +1,5 @@
-on: push
+on: 
+  push
 name: Publish Website
 jobs:
   web-deploy:
